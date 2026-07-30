@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "summer-camps",
+    "title": "芬兰沉浸式夏令营",
+    "description": "深入体验北欧教育精髓，融合现象式学习与全真插班体验。",
+    "content": "面向10-20岁青少年，拒绝走马观花的打卡。核心环节包含：赫尔辛基人文观察、芬兰中小学真实插班上课、森林营地现象式学习（PBL）、跨海豪华游轮体验及瑞典/爱沙尼亚人文拓展。",
+    "image": "/images/programs/summer-1.jpg",
+    "video": "/videos/program-summer.mp4",
+    "featured": true
+  },
+  {
+    "slug": "winter-camps",
+    "title": "极地科考冬令营",
+    "description": "深入北极圈，体验极地地理、自然科学与北欧冰雪运动。",
+    "content": "探访罗瓦涅米圣诞老人村，乘坐极地破冰船，观测绚丽极光。结合芬兰国家级体育中心的专业冰雪课程，参与跨学科的自然科学与环保教育课题研究。",
+    "image": "/images/programs/winter-1.jpg",
+    "video": "/videos/program-winter.mp4",
+    "featured": true
+  },
+  {
+    "slug": "edu-exchange",
+    "title": "中芬教育论坛与校长交流",
+    "description": "推动双边职业教育、高等教育的互访与深度合作。",
+    "content": "组织中方校长与教育局领导赴芬兰考察，与当地教育局、知名智库及校方开展闭门会议。探讨教育数字化、师资培训及未来学校空间设计。",
+    "image": "/images/programs/edu-1.jpg",
+    "video": null,
+    "featured": false
+  }
+]

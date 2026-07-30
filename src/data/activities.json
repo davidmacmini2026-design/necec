@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026年3月28日",
+    "title": "2026 赫尔辛基“春日雅聚”高端交流会",
+    "desc": "在芬兰首都赫尔辛基隆重开启。本次雅聚汇集了多位政经与科技界领袖，包括北欧经济文化交流中心会长兼 Vimpeli 市长 Sam 先生、Robotex 国际机器人大赛董事局主席雅尔莫·索米宁教授、中心副主席 Leo 与王洪，以及华人科技协会会长郭明等权威专家，共同探讨中芬在科技与文化领域的深度合作与未来发展。",
+    "image": "/images/activities/spring-gathering.png",
+    "video": null
+  },
+  {
+    "date": "2024 冬季",
+    "title": "芬兰极地科考与冰雪运动冬令营",
+    "desc": "在芬兰国家级体育中心(Pajulahti)开展，结合极地科考、破冰船体验与专业的北欧冰雪运动训练，为中方学子提供极致的自然与体育双重教育。",
+    "image": "/images/activities/act-1.jpg",
+    "video": "/videos/activity-1.mp4"
+  },
+  {
+    "date": "2023 - 2024",
+    "title": "高规格政商与学术交流互访",
+    "desc": "中心核心团队高频参与并推动中芬高层互动，包括芬兰总理会晤、议会副议长接见，以及上海市人大、多地市长及教育局长考察团的落地接待与智库座谈。",
+    "image": "/images/activities/act-2.jpg",
+    "video": "/videos/activity-2.mp4"
+  },
+  {
+    "date": "2023 年度",
+    "title": "Robotex Asia 与科技教育合作",
+    "desc": "作为亚洲及中国区域的核心推动者，成功落地多场国际科技赛事与青少年教育交流活动，将北欧先进的科创教育理念引入中国合作院校。",
+    "image": "/images/activities/act-3.jpg",
+    "video": null
+  },
+  {
+    "date": "2022 - 2023",
+    "title": "中芬友好城市缔结与经贸展会",
+    "desc": "深度参与 FinnCham Shanghai 等高端经贸商会活动，促成多项中芬企业采购、投资协议落地，并推动两国多个地区签署友好城市与可持续发展合作意向。",
+    "image": "/images/activities/act-4.jpg",
+    "video": null
+  }
+]

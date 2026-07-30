@@ -1,0 +1,6 @@
+[
+  { "id": "economic", "icon": "Briefcase", "title": "经济贸易合作", "desc": "搭建中北欧企业对接桥梁，推动双向投资、经贸展览与产业落地，助力企业出海与技术引进。" },
+  { "id": "education", "icon": "GraduationCap", "title": "教育双向交流", "desc": "涵盖现象式学习冬夏令营、职业教育师资培训、高校学术互访及教育科技(EdTech)合作。" },
+  { "id": "city", "icon": "Building2", "title": "友好城市缔结", "desc": "协助中芬城市在可持续发展、智慧城市治理、冰雪经济等领域建立长期友城合作与资源互换。" },
+  { "id": "projects", "icon": "Rocket", "title": "定制项目支持", "desc": "为政企考察团、行业峰会（如Robotex Asia）提供高规格的落地接待、智库对接与政商资源匹配。" }
+]

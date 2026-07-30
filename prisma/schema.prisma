@@ -1,0 +1,136 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model AdminUser {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model SiteConfig {
+  id                  String  @id @default("main")
+  name                String
+  nameEn              String
+  nameFi              String?
+  shortName           String
+  description         String
+  descriptionEn       String?
+  descriptionFi       String?
+  contactEmail        String
+  contactWechat       String
+  contactPhone        String?
+  contactLocation     String
+  contactLocationFi   String?
+  contactLocationEn   String?
+  heroVideo           String?
+  qrCode              String?
+}
+
+model Program {
+  id            String  @id @default(uuid())
+  slug          String  @unique
+  title         String
+  titleFi       String?
+  titleEn       String?
+  description   String
+  descriptionFi String?
+  descriptionEn String?
+  content       String
+  contentFi     String?
+  contentEn     String?
+  image         String?
+  video         String?
+  logo          String?
+  featured      Boolean @default(false)
+  sortOrder     Int     @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model PartnerCategory {
+  id       String         @id @default(uuid())
+  category String
+  title    String
+  titleFi  String?
+  titleEn  String?
+  sortOrder Int           @default(0)
+  items    PartnerItem[]
+}
+
+model PartnerItem {
+  id            String          @id @default(uuid())
+  slug          String          @unique
+  name          String
+  nameFi        String?
+  nameEn        String?
+  description   String          @default("")
+  descriptionFi String?
+  descriptionEn String?
+  content       String          @default("")
+  contentFi     String?
+  contentEn     String?
+  logo          String?
+  image         String?
+  video         String?
+  website       String?
+  featured      Boolean         @default(false)
+  categoryId    String
+  category      PartnerCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  sortOrder     Int             @default(0)
+}
+
+model Service {
+  id       String  @id @default(uuid())
+  icon     String
+  title    String
+  titleFi  String?
+  titleEn  String?
+  desc     String
+  descFi   String?
+  descEn   String?
+  sortOrder Int    @default(0)
+}
+
+model TeamMember {
+  id       String  @id @default(uuid())
+  name     String
+  role     String
+  roleFi   String?
+  roleEn   String?
+  desc     String
+  descFi   String?
+  descEn   String?
+  image    String?
+  sortOrder Int    @default(0)
+}
+
+model Activity {
+  id       String  @id @default(uuid())
+  date     String
+  title    String
+  titleFi  String?
+  titleEn  String?
+  desc     String
+  descFi   String?
+  descEn   String?
+  image    String?
+  video    String?
+  sortOrder Int    @default(0)
+}
+
+model ContactSubmission {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  organization String?
+  message      String
+  lang         String   @default("zh")
+  createdAt    DateTime @default(now())
+}

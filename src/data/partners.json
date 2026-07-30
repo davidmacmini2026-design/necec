@@ -1,0 +1,31 @@
+[
+  {
+    "category": "China",
+    "title": "中国合作伙伴",
+    "items": [
+      { "name": "同济大学", "logo": "/images/placeholder-logo.png" },
+      { "name": "OU HE", "logo": "/images/placeholder-logo.png" },
+      { "name": "中爱芬", "logo": "/images/placeholder-logo.png" },
+      { "name": "英孚教育", "logo": "/images/placeholder-logo.png" }
+    ]
+  },
+  {
+    "category": "Finland",
+    "title": "芬兰合作伙伴",
+    "items": [
+      { "name": "Kisakallio 体育中心", "logo": "/images/placeholder-logo.png" },
+      { "name": "Pajulahti 体育中心", "logo": "/images/placeholder-logo.png" },
+      { "name": "Robotex Asia", "logo": "/images/placeholder-logo.png" }
+    ]
+  },
+  {
+    "category": "Cities",
+    "title": "北欧合作城市",
+    "items": [
+      { "name": "Vimpeli", "logo": "/images/placeholder-logo.png" },
+      { "name": "Salla", "logo": "/images/placeholder-logo.png" },
+      { "name": "Kalajoki", "logo": "/images/placeholder-logo.png" },
+      { "name": "Lahti", "logo": "/images/placeholder-logo.png" }
+    ]
+  }
+]

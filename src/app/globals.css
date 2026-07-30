@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-necec-dark: #001233;
+  --color-necec-blue: #004A99;
+  --color-necec-light: #00c3ff;
+  --color-necec-accent: #D9A05B;
+}
+
+@layer base {
+  body {
+    @apply bg-[#000a1a] text-white font-sans antialiased;
+    background-image: radial-gradient(circle at top center, rgba(0, 74, 153, 0.15) 0%, transparent 50%);
+  }
+}

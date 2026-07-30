@@ -1,0 +1,20 @@
+{
+  "name": "北欧经济文化交流中心",
+  "name_en": "Nordic Economic and Culture Exchange Center",
+  "short_name": "NECEC",
+  "description": "连接中北欧经济、文化、教育、科技、城市合作的官方枢纽与桥梁平台",
+  "navigation": [
+    { "label": "首页", "href": "/" },
+    { "label": "关于我们", "href": "/about" },
+    { "label": "服务使命", "href": "/services" },
+    { "label": "合作网络", "href": "/partners" },
+    { "label": "核心项目", "href": "/programs" },
+    { "label": "交流活动", "href": "/activities" },
+    { "label": "联系咨询", "href": "/contact" }
+  ],
+  "contact": {
+    "email": "long.zhuoying@cnp-fi.com",
+    "wechat": "NECEC_Official",
+    "location": "Helsinki, Finland & Shanghai, China"
+  }
+}

@@ -1,0 +1,85 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# database (synced via rsync, not git)
+prisma/*.db
+prisma/*.db*
+prisma/*.backup
+prisma/*.backup.*
+prisma/*.dump
+
+# uploads & storage (synced via rsync, not git)
+/storage/
+/uploads/
+
+# large media assets in public (synced via rsync)
+/public/uploads/
+/public/videos/
+/public/images/
+/public/brand/
+
+# local build artifacts & diagnostics
+/build
+/diagnostics
+/server
+/scripts
+
+# local-only docs (not for deployment)
+AGENTS.md
+CLAUDE.md
+DECISIONS.md
+PROJECT_STATE.md
+TODO.md
+
+# misc large assets (not needed in git)
+/images/
+/videos/
+/static/
+/素材图/
+/brand/
+
+# static svg
+file.svg
+globe.svg
+next.svg
+vercel.svg
+window.svg
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

@@ -1,0 +1,9 @@
+[
+  { "name": "Sam Leijonanmieli", "role": "主席 (Chairman)", "desc": "引领中北欧高层政企互动与战略合作规划，连接芬兰顶级政商资源。目前担任芬兰Vimpeli市长。", "image": "/images/team/sam.png" },
+  { "name": "Leo Long", "role": "副主席 (Vice Chair)", "desc": "统筹双边经贸交流、商务拓展与中国区核心渠道建设。", "image": "/images/team/leo.png" },
+  { "name": "Hong Wang", "role": "副主席 (Vice Chair)", "desc": "主导教育文化项目研发、研学营地建设及中方学校合作网络。", "image": "/images/team/hong.png" },
+  { "name": "Miika", "role": "副主席 (Vice Chair)", "desc": "负责北欧本土资源对接、机构运营与大型项目落地执行。", "image": "/images/team/miika.png" },
+  { "name": "Teresa Xin", "role": "副主席 (Vice Chair)", "desc": "主导对外公共关系、国际品牌战略与大型展会峰会策划。", "image": "/images/team/teresa.png" },
+  { "name": "Katja Hopia", "role": "高级顾问 (Senior Advisor)", "desc": "提供芬兰政经界高层智库支持，深度参与跨国城市发展战略。", "image": "/images/team/katja.png" },
+  { "name": "Jarmo Suominen", "role": "高级顾问 (Senior Advisor)", "desc": "同济大学等知名学府特聘教授，提供学术、建筑与城市创新指导。", "image": "/images/team/jarmo.png" }
+]
