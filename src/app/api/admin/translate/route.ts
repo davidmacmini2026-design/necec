@@ -177,10 +177,11 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 6. Translate Partner Items
+    // 6. Translate Partner Items (name, description, content)
     const items = await prisma.partnerItem.findMany();
     for (const i of items) {
       const updates: any = {};
+
       if (i.name && !i.nameFi) {
         updates.nameFi = await translateText(i.name, 'fi');
         totalTranslated++;
@@ -189,9 +190,26 @@ export async function POST(request: NextRequest) {
         updates.nameEn = await translateText(i.name, 'en');
         totalTranslated++;
       }
+      if (i.description && !i.descriptionFi) {
+        updates.descriptionFi = await translateText(i.description, 'fi');
+        totalTranslated++;
+      }
+      if (i.description && !i.descriptionEn) {
+        updates.descriptionEn = await translateText(i.description, 'en');
+        totalTranslated++;
+      }
+      if (i.content && !i.contentFi) {
+        updates.contentFi = await translateText(i.content, 'fi');
+        totalTranslated++;
+      }
+      if (i.content && !i.contentEn) {
+        updates.contentEn = await translateText(i.content, 'en');
+        totalTranslated++;
+      }
+
       if (Object.keys(updates).length > 0) {
         await prisma.partnerItem.update({ where: { id: i.id }, data: updates });
-        results.push(`✅ Partner: ${i.name} → fi/en`);
+        results.push(`✅ Partner: ${i.name} → fi/en (${Object.keys(updates).length} fields)`);
       }
     }
 

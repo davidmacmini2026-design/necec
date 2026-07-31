@@ -1,0 +1,16 @@
+🦞 NECEC 项目唤醒入口
+
+如果你看到这个文件，说明我需要恢复 NECEC 项目的全部上下文。
+请立即读取以下文件获取完整信息：
+
+    /Users/david/.openclaw/workspace-main/NECEC-WAKEUP.md
+
+该文件包含：
+- 项目身份与老板信息
+- 所有服务器 IP/SSH/PM2/域名/Nginx 配置
+- Git 仓库地址与密钥路径
+- 完整数据库 Schema 与 API 端点
+- 部署命令与从零恢复流程
+- 已修复的 Bug 清单
+
+项目本地路径：/Users/david/北欧经济文化交流中心/nordic-economic-culture-exchange-center/
