@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  if (!proces…KEY) {
+  if (!process.env.DEEPSEEK_API_KEY) {
     return NextResponse.json(
       { error: '翻译功能未配置', details: '请在服务器环境变量中设置 DEEPSEEK_API_KEY' },
       { status: 500 }
