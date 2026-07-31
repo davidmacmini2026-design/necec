@@ -2,7 +2,8 @@
 /**
  * 独立翻译脚本 — DeepSeek API 翻译数据库内容
  * 通过 sqlite3 CLI 操作数据库，纯 Node.js 调用 DeepSeek API
- * 用法: DEEPSEEK_API_KEY=sk-xxx node scripts/translate.mjs
+ * 用法: node scripts/translate.mjs
+ * API Key 自动从项目根目录 .env 文件读取
  */
 
 import { execSync } from 'child_process';
@@ -11,7 +12,41 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DB_PATH = path.join(__dirname, '..', 'prisma', 'dev.db');
+const PROJECT_ROOT = path.join(__dirname, '..');
+const DB_PATH = path.join(PROJECT_ROOT, 'prisma', 'dev.db');
+
+// 从 .env 文件加载环境变量（Next.js 生产模式不自动注入）
+function loadEnv() {
+  const envPath = path.join(PROJECT_ROOT, '.env');
+  if (fs.existsSync(envPath)) {
+    const lines = fs.readFileSync(envPath, 'utf-8').split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eqIdx = trimmed.indexOf('=');
+      if (eqIdx === -1) continue;
+      const key = trimmed.slice(0, eqIdx).trim();
+      const value = trimmed.slice(eqIdx + 1).trim();
+      if (!process.env[key]) process.env[key] = value;
+    }
+  }
+  // 也尝试 .env.local
+  const localPath = path.join(PROJECT_ROOT, '.env.local');
+  if (fs.existsSync(localPath)) {
+    const lines = fs.readFileSync(localPath, 'utf-8').split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eqIdx = trimmed.indexOf('=');
+      if (eqIdx === -1) continue;
+      const key = trimmed.slice(0, eqIdx).trim();
+      const value = trimmed.slice(eqIdx + 1).trim();
+      if (!process.env[key]) process.env[key] = value;
+    }
+  }
+}
+
+loadEnv();
 
 const API_KEY = process.env.DEEPSEEK_API_KEY;
 if (!API_KEY) {
