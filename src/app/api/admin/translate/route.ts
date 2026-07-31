@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import path from 'path';
-
-const execAsync = promisify(exec);
 
 export async function POST(request: NextRequest) {
   const session = await getSession();
@@ -20,45 +15,54 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const scriptPath = path.join(process.cwd(), 'scripts', 'translate.mjs');
-    const { stdout, stderr } = await execAsync(`node "${scriptPath}"`, {
-      timeout: 600000, // 10 分钟超时
-      maxBuffer: 1024 * 1024, // 1MB
-      env: { ...process.env },
-    });
+    // 启动翻译脚本（后台运行），不等待结果，避免超时
+    const { spawn } = await import('child_process');
+    const path = await import('path');
+    
+    const scriptPath = path.default.join(process.cwd(), 'scripts', 'translate.mjs');
+    
+    return new Promise((resolve) => {
+      const child = spawn('node', [scriptPath], {
+        env: process.env,
+        stdio: ['ignore', 'pipe', 'pipe'],
+        timeout: 600000,
+      });
 
-    if (stderr && !stderr.includes('Warning')) {
-      console.error('Translate script stderr:', stderr);
-    }
+      let stdout = '';
+      let stderr = '';
 
-    // 从输出中统计结果
-    const lines = stdout.split('\n').filter(Boolean);
-    const successLines = lines.filter(l => l.includes('✅'));
-    const errorLines = lines.filter(l => l.includes('❌'));
-    const totalDone = successLines.length;
-    const totalFailed = errorLines.length;
+      child.stdout.on('data', (data: Buffer) => {
+        stdout += data.toString();
+      });
 
-    return NextResponse.json({
-      success: true,
-      totalTranslated: totalDone,
-      skipped: totalFailed,
-      message: totalDone > 0
-        ? `翻译完成！共处理 ${totalDone} 个字段。`
-        : `⚠️ 所有字段已有有效翻译。`,
-      details: successLines.concat(errorLines),
+      child.stderr.on('data', (data: Buffer) => {
+        stderr += data.toString();
+      });
+
+      child.on('close', (code: number) => {
+        const lines = stdout.split('\n').filter(Boolean);
+        const successLines = lines.filter(l => l.includes('✅'));
+        const errorLines = lines.filter(l => l.includes('❌'));
+
+        resolve(NextResponse.json({
+          success: code === 0,
+          totalTranslated: successLines.length,
+          skipped: errorLines.length,
+          message: successLines.length > 0
+            ? `翻译完成！共处理 ${successLines.length} 个字段。`
+            : `翻译完成。`,
+          details: successLines.concat(errorLines),
+        }));
+      });
+
+      child.on('error', (err: Error) => {
+        resolve(NextResponse.json(
+          { error: '翻译脚本启动失败', details: err.message },
+          { status: 500 }
+        ));
+      });
     });
   } catch (err: any) {
-    console.error('Translation error:', err);
-    // 超时时返回部分结果
-    if (err.killed) {
-      return NextResponse.json({
-        success: true,
-        totalTranslated: 0,
-        skipped: 0,
-        message: '翻译超时，部分内容可能未完成。请稍后重试。',
-        details: [],
-      });
-    }
     return NextResponse.json(
       { error: '翻译失败', details: err.message },
       { status: 500 }
